@@ -1,5 +1,4 @@
 package com.coder.controller;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +12,10 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class HomeController {
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	@GetMapping("/")
 	public String index() {
 		return "index";
@@ -26,12 +25,7 @@ public class HomeController {
 	public String register() {
 		return "register";
 	}
-	
-	@GetMapping("/addNotes")
-	public String addNotes() {
-		return "add_notes";
-	}
-	
+
 	@PostMapping("/saveUser")
 	public String saveUser(@ModelAttribute User user, HttpSession session) {
 
@@ -50,19 +44,12 @@ public class HomeController {
 
 		return "redirect:/register";
 	}
-	
-	@GetMapping("/editNotes")
-	public String editNotes() {
-		return "edit_notes";
-	}
-	
-	@GetMapping("/login")
+
+	@GetMapping("/signin")
 	public String login() {
 		return "login";
 	}
+
 	
-	@GetMapping("/viewNotes")
-	public String viewNotes() {
-		return "view_notes";
-	}
+
 }
